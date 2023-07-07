@@ -1,0 +1,11 @@
+version: 0.0
+os: windows
+files:
+  -  source: \AWSCOnsole
+     destination: C:\Hello
+
+hooks:
+  ApplicationStart:
+    - location: \Applicationstart.ps1
+      timeout: 300
+      runas: Administrator
