@@ -52,7 +52,7 @@ resource "aws_codedeploy_deployment_group" "DeployGroup" {
 
 resource "aws_codepipeline" "cicd_pipeline" {
 
-    name = "CICDConsoleproject"
+    name = "CICDPipelineConsoleproject"
     role_arn = aws_iam_role.tf-codepipeline-role.arn
 
     artifact_store {
