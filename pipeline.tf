@@ -24,12 +24,12 @@ resource "aws_codebuild_project" "tf-plan" {
 }
 
 resource "aws_codedeploy_app" "code_deploy" {
-  name          = "ConsoleApplicationDeploy"
+  name          = "MyConsoleDeployment"
   compute_platform = "Server"
 }
 resource "aws_codedeploy_deployment_group" "DeployGroup" {
-  app_name               = "ConsoleApplicationDeployment"
-  deployment_group_name  = "ConsoleApplicationDeploymentGroup"
+  app_name               = "MyConsoleDeployment"
+  deployment_group_name  = "MyConsoleDeploymentGroup"
   service_role_arn      ="arn:aws:iam::606104556660:role/CodeDeployRoleForEc2"  
   deployment_config_name = "CodeDeployDefault.AllAtOnce"
 
