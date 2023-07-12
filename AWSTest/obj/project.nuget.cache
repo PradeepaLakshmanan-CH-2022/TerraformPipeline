@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3FP8AM0cXcPYMPULtAutangMvZVBUnL9j5qKkj7ZM99qz7wMG57JTHF/9NQ4ePUJUhhb6O7SGLdC/qgQ9zgUoA==",
+  "dgSpecHash": "/T8Rdls8GvCYaTFifz10l50EWZV/3o+zeqbj733d0KN3b1S6UAmJ/42ScnDsY37EabXTy+zVNGC7LXl08LafXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\AWSCOnsole\\AWSTest\\AWSTest.csproj",
+  "projectFilePath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\TerraformPipeline\\AWSTest\\AWSTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pradeepa.lakshmanan\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Pradeepa.lakshmanan\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

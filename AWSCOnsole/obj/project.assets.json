@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\AWSCOnsole\\AWSCOnsole\\AWSCOnsole.csproj",
+      "projectUniqueName": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\TerraformPipeline\\AWSCOnsole\\AWSCOnsole.csproj",
       "projectName": "AWSCOnsole",
-      "projectPath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\AWSCOnsole\\AWSCOnsole\\AWSCOnsole.csproj",
+      "projectPath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\TerraformPipeline\\AWSCOnsole\\AWSCOnsole.csproj",
       "packagesPath": "C:\\Users\\Pradeepa.lakshmanan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\AWSCOnsole\\AWSCOnsole\\obj\\",
+      "outputPath": "C:\\Users\\Pradeepa.lakshmanan\\source\\repos\\TerraformPipeline\\AWSCOnsole\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pradeepa.lakshmanan\\AppData\\Roaming\\NuGet\\NuGet.Config",
