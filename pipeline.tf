@@ -58,21 +58,25 @@ resource "aws_codepipeline" "cicd_pipeline" {
     artifact_store {
         type="S3"
         location = aws_s3_bucket.codepipeline_artifacts.id
+       // location = aws_s3_bucket.codepipeline_artifacts.id
+
     }
 
-    stage {
-        name = "Source"
-        action{
-            name = "Source"
-            category = "Source"
-            owner = "AWS"
-            provider = "CodeStarSourceConnection"
-            version = "1"
+   stage {
+    name = "Source"
+
+    action {
+      name            = "Source"
+      category        = "Source"
+      owner           = "AWS"
+      provider        = "CodeStarSourceConnection"
+      version         = "1"
             output_artifacts = ["tf-code"]
             configuration = {
                 FullRepositoryId = "PradeepaLakshmanan-CH-2022/TerraformPipeline"
-                BranchName   = "master"
-                ConnectionArn = var.codestar_connector_credentials
+                BranchName   = "main"
+                ConnectionArn=var.codestar_connector_credentials
+               // ConnectionArn = var.codestar_connector_credentials
                 OutputArtifactFormat = "CODE_ZIP"
             }
         }
