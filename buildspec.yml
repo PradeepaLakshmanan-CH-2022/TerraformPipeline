@@ -16,8 +16,7 @@ phases:
     commands:
       - echo Publish started on `date`
       - dotnet publish --configuration Release --output ./publish
-      - cp appspec.yml ./publish
-      - cp Applicationstart.ps1 ./publish
+     
 artifacts:
   files:
     - '**/*'
