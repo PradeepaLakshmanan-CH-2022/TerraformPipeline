@@ -39,7 +39,7 @@ resource "aws_codedeploy_deployment_group" "DeployGroup" {
   ec2_tag_set {
     ec2_tag_filter {
       key    = "Name"
-      value  = "ConsoleEc2"
+      value  = "HTmlec2"
       type   = "KEY_AND_VALUE"
     }
 
@@ -88,7 +88,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
             owner = "AWS"
             input_artifacts = ["tf-code"]
             configuration = {
-                ProjectName = "BuildConsole"
+                ProjectName = "Buildapi"
             }
         }
     }
@@ -106,8 +106,8 @@ resource "aws_codepipeline" "cicd_pipeline" {
     input_artifacts = ["tf-code"]
 
     configuration = {
-      ApplicationName  = "ConsoleApplicationDeploy"
-      DeploymentGroupName = "ConsoleApplicationDeployGroup"
+      ApplicationName  = "MyConsoleDeployment"
+      DeploymentGroupName = "MyConsoleDeploymentGroup"
   
     }
   }
