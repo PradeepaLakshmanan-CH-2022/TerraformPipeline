@@ -6,7 +6,7 @@ if ($runningProcesses) {
 }
 
 #  path for console application DLL
-$consoleAppPath = "C:\ConsoleApp\AWSCOnsole.dll"
+$consoleAppPath = "C:\ConsoleApplication\AWSCOnsole.dll"
 
 #  path for the output file
 $outputFilePath = "C:\outputfile\output.txt"
