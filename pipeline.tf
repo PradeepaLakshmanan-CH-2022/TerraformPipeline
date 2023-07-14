@@ -1,19 +1,25 @@
 resource "aws_codebuild_project" "tf-plan" {
   name          = "BuildConsole"
-  description   = "Plan stage for terraform"
+  description   = "Plan stage for Terraform"
   service_role  = aws_iam_role.tf-codebuild-role.arn
 
   artifacts {
     type = "CODEPIPELINE"
   }
- environment {
+
+  environment {
     compute_type    = "BUILD_GENERAL1_SMALL"
-    image           = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"  # Specify the CodeBuild environment image version 5.0
+    image           = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"
     type            = "LINUX_CONTAINER"
   }
- source {
-     type   = "CODEPIPELINE"
- }
+
+  source {
+    type   = "CODEPIPELINE"
+     # Specify the buildspec file location
+    buildspec = "buildspec.yml"
+  }
+
+ 
 }
 
 resource "aws_codedeploy_app" "code_deploy" {
@@ -78,11 +84,11 @@ resource "aws_codepipeline" "cicd_pipeline" {
     stage {
         name ="Build"
         action{
-            name = "Build"
+            name = "BuildAction"
             category = "Build"
-            provider = "CodeBuild"
-            version = "1"
             owner = "AWS"
+            provider = "CodeBuild"
+            version = "1"          
             input_artifacts = ["tf-code"]
             configuration = {
                 ProjectName = "BuildConsole"
@@ -99,7 +105,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
     owner           = "AWS"
     provider        = "CodeDeploy"
     version = "1"
-   run_order       = 1
+    run_order       = 1
     input_artifacts = ["tf-code"]
 
     configuration = {
