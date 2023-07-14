@@ -6,17 +6,11 @@ resource "aws_codebuild_project" "tf-plan" {
   artifacts {
     type = "CODEPIPELINE"
   }
-
-  environment {
-    compute_type                = "BUILD_GENERAL1_SMALL"
-    image                       = "mcr.microsoft.com/dotnet/sdk"
-    type                        = "LINUX_CONTAINER"
-    image_pull_credentials_type = "SERVICE_ROLE"
-    registry_credential{
-        credential = var.dockerhub_credentials
-        credential_provider = "SECRETS_MANAGER"
-    }
- }
+ environment {
+    compute_type    = "BUILD_GENERAL1_SMALL"
+    image           = "aws/codebuild/amazonlinux2-x86_64-standard:5.0"  # Specify the CodeBuild environment image version 5.0
+    type            = "LINUX_CONTAINER"
+  }
  source {
      type   = "CODEPIPELINE"
      buildspec = file("buildspec.yml")
@@ -92,7 +86,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
             owner = "AWS"
             input_artifacts = ["tf-code"]
             configuration = {
-                ProjectName = "BuildConsole"
+                ProjectName = "Buildapi"
             }
         }
     }
