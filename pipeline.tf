@@ -51,7 +51,7 @@ resource "aws_codedeploy_deployment_group" "DeployGroup" {
 
 resource "aws_codepipeline" "cicd_pipeline" {
 
-    name = "CICDPipelineConsoleproject"
+    name = "CICDPipeline"
     role_arn = aws_iam_role.tf-codepipeline-role.arn
 
     artifact_store {
@@ -70,7 +70,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
       owner           = "AWS"
       provider        = "CodeStarSourceConnection"
       version         = "1"
-            output_artifacts = ["tf-code"]
+            output_artifacts = ["SourceArtifact"]
             configuration = {
                 FullRepositoryId = "PradeepaLakshmanan-CH-2022/TerraformPipeline"
                 BranchName   = "main"
@@ -89,7 +89,8 @@ resource "aws_codepipeline" "cicd_pipeline" {
             owner = "AWS"
             provider = "CodeBuild"
             version = "1"          
-            input_artifacts = ["tf-code"]
+            input_artifacts = ["SourceArtifact"]
+            output_artifacts = ["BuildArtifact"]
             configuration = {
                 ProjectName = "BuildConsole"
             }
@@ -106,7 +107,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
     provider        = "CodeDeploy"
     version = "1"
     run_order       = 1
-    input_artifacts = ["tf-code"]
+    input_artifacts = ["SourceArtifact"]
 
     configuration = {
       ApplicationName  = "MyConsoleDeployment"
