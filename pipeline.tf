@@ -86,7 +86,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
             owner = "AWS"
             input_artifacts = ["tf-code"]
             configuration = {
-                ProjectName = "Buildapi"
+                ProjectName = "BuildConsole"
             }
         }
     }
