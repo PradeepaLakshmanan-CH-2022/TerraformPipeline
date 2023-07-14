@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "tf-plan" {
-  name          = "BuildConsole"
+  name          = "BuildAppConsole"
   description   = "Plan stage for Terraform"
   service_role  = aws_iam_role.tf-codebuild-role.arn
 
@@ -23,12 +23,12 @@ resource "aws_codebuild_project" "tf-plan" {
 }
 
 resource "aws_codedeploy_app" "code_deploy" {
-  name          = "MyConsoleDeployment"
+  name          = "Deployproject"
   compute_platform = "Server"
 }
 resource "aws_codedeploy_deployment_group" "DeployGroup" {
-  app_name               = "MyConsoleDeployment"
-  deployment_group_name  = "MyConsoleDeploymentGroup"
+  app_name               = "Deployproject"
+  deployment_group_name  = "DeployprojectGroup"
   service_role_arn      ="arn:aws:iam::606104556660:role/CodeDeployRoleForEc2"  
   deployment_config_name = "CodeDeployDefault.AllAtOnce"
 
@@ -92,7 +92,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
             input_artifacts = ["SourceArtifact"]
             output_artifacts = ["BuildArtifact"]
             configuration = {
-                ProjectName = "BuildConsole"
+                ProjectName = "BuildAppConsole"
             }
         }
     }
@@ -110,8 +110,8 @@ resource "aws_codepipeline" "cicd_pipeline" {
     input_artifacts = ["BuildArtifact"]
 
     configuration = {
-      ApplicationName  = "MyConsoleDeployment"
-      DeploymentGroupName = "MyConsoleDeploymentGroup"
+      ApplicationName  = "Deployproject"
+      DeploymentGroupName = "DeployprojectGroup"
   
     }
   }
