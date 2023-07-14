@@ -51,7 +51,7 @@ resource "aws_codedeploy_deployment_group" "DeployGroup" {
 
 resource "aws_codepipeline" "cicd_pipeline" {
 
-    name = "CICDPipeline"
+    name = "CICDConsole"
     role_arn = aws_iam_role.tf-codepipeline-role.arn
 
     artifact_store {
@@ -107,7 +107,7 @@ resource "aws_codepipeline" "cicd_pipeline" {
     provider        = "CodeDeploy"
     version = "1"
     run_order       = 1
-    input_artifacts = ["SourceArtifact"]
+    input_artifacts = ["BuildArtifact"]
 
     configuration = {
       ApplicationName  = "MyConsoleDeployment"
